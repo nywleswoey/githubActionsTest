@@ -31,3 +31,4 @@ jobs:
           committer_name: GitHub Actions
           committer_email: actions@github.com
           message: 'Automated update of themes on token change'
+          add: '*.ts'
