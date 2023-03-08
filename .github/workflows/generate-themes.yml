@@ -23,6 +23,10 @@ jobs:
         run: npm run generate-themes
       - name: Logging
         run: ls src/themes
+      - name: Ensure git is present
+        run: |
+          apt-get update -y
+          apt-get install git -y
       - name: Commit generated themes
         uses: EndBug/add-and-commit@v9
         with:
