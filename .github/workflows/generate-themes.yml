@@ -13,7 +13,7 @@ jobs:
     name: Generate Themes
     runs-on: ubuntu-20.04
     container:
-      image: node: 18.14.2
+      image: node:18.14.2-alpine
     steps:
      - run: npm ci
      - run: echo "done"
