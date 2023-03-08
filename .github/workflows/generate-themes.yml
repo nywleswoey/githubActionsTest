@@ -24,9 +24,7 @@ jobs:
       - name: Logging
         run: ls src/themes
       - name: Ensure git is present
-        run: |
-          apt-get update -y
-          apt-get install git -y
+        run: RUN apk add --no-cache git
       - name: Commit generated themes
         uses: EndBug/add-and-commit@v9
         with:
