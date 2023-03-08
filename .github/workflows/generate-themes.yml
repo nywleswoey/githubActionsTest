@@ -15,5 +15,5 @@ jobs:
     container:
       image: node:18.14.2-alpine
     steps:
-     - run: npm ci
+     - run: npm install
      - run: echo "done"
