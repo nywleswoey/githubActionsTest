@@ -21,6 +21,8 @@ jobs:
         run: npm ci
       - name: Generate themes
         run: npm run generate-themes
+      - name: Logging
+        run: ls src/themes
       - name: Commit generated themes
         uses: EndBug/add-and-commit@v9
         with:
