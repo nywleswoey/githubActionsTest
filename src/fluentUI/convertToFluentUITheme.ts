@@ -43,7 +43,6 @@ const convertToFluentUITheme = ({ name, tokenSet }: Project): string => {
 
     const newValue = convertToken(token);
     if (newValue !== originalValue) {
-      console.log({ tokenName, newValue, originalValue });
       overwrittenTokens.push(
         `"${tokenName}":${typeof newValue === 'string' ? `"${newValue}"` : newValue}`
       );
