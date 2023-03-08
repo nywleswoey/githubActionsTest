@@ -1,0 +1,21 @@
+[
+  {
+    "id": "e6dafe8bf2a74a70c611c7dce2f2beca5788890c",
+    "name": "brandA",
+    "selectedTokenSets": {
+      "global": "source",
+      "global/colours": "enabled",
+      "global/typo": "enabled",
+      "brandA/styles": "enabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "e6dafe8bf2a74a70c611c7dce2f2beca5788890d",
+    "name": "brandB",
+    "selectedTokenSets": {
+      "brandB/styles": "enabled"
+    },
+    "$figmaStyleReferences": {}
+  }
+]
