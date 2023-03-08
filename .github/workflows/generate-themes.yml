@@ -15,6 +15,8 @@ jobs:
     container:
       image: node:18.14.2-alpine
     steps:
+      - name: Ensure git is present
+        run: apk add --no-cache git
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Install dependencies
@@ -23,8 +25,6 @@ jobs:
         run: npm run generate-themes
       - name: Logging
         run: ls src/themes
-      - name: Ensure git is present
-        run: RUN apk add --no-cache git
       - name: Commit generated themes
         uses: EndBug/add-and-commit@v9
         with:
