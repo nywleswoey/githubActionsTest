@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: Ensure git is present
         run: apk add --no-cache git
+      - run: git config --system --add safe.directory /__w/githubActionsTest/githubActionsTest
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Install dependencies
@@ -24,7 +25,7 @@ jobs:
       - name: Generate themes
         run: npm run generate-themes
       - name: Logging
-        run: ls src/themes
+        run: ls
       - name: Commit generated themes
         uses: EndBug/add-and-commit@v9
         with:
