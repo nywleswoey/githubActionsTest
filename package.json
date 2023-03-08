@@ -18,7 +18,7 @@
     "lint-fix": "npm run lint -- --fix",
     "lint-staged": "lint-staged --no-stash",
     "generate-themes": "ts-node src/generateThemes.ts",
-    "pregenerate-themes": "rm generated/*.ts || true",
+    "pregenerate-themes": "rm src/themes/*.ts || true",
     "postgenerate-themes": "npm run lint-fix -- src/themes"
   },
   "repository": {
