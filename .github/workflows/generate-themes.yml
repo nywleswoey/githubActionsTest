@@ -2,6 +2,8 @@ name: Generate Themes On Project Changes
 
 on:
   pull_request:
+    types:
+      - ['opened','edited','synchronize']
     paths:
       - 'tokens/**.json'
 
