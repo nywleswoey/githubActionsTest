@@ -18,6 +18,8 @@ jobs:
       - run: git config --system --add safe.directory /__w/githubActionsTest/githubActionsTest
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Install dependencies
         run: npm ci
       - name: Generate themes
