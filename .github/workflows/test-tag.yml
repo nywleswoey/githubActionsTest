@@ -1,0 +1,14 @@
+name: Build Pipeline
+
+on:
+  pull_request
+
+jobs:
+
+  test_tag:
+    name: Test tag
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Echo tag
+        run: |
+          echo "${GITHUB_REF#refs/heads/} ${GITHUB_SHA::6}"
