@@ -1,0 +1,40 @@
+name: Build Pipeline
+
+on:
+  pull_request
+
+jobs:
+  generate_tag:
+    name: Generate Image Tag
+    runs-on: ubuntu-20.04
+    outputs:
+      image-tag: ${{ steps.generate-tag.outputs.image-tag }}
+      image-ref: ${{ steps.generate-tag.outputs.image-ref }}
+      build-time: ${{ steps.generate-tag.outputs.build-time }}
+    steps:
+      - id: generate-tag
+        run: |
+          REF=${GITHUB_REF#*/}
+          REF=${REF#*/}
+          REF=${REF%%/*}
+          if [[ $GITHUB_REF =~ ^refs\/pull ]]; then
+            REF="PR-$REF"
+          fi
+          if [[ $GITHUB_REF =~ ^refs\/tags ]]; then
+            REF+="_$(date +'%Y%m%d-%H%M%S')"
+          fi
+          BUILD_TIME=$(date +"%Y-%m-%d %T")
+          echo "::set-output name=image-tag::${{ inputs.registry_url }}/${{ inputs.app }}:$REF"
+          echo "::set-output name=image-ref::$REF"
+          echo "::set-output name=build-time::$BUILD_TIME"
+
+  test_tag:
+    name: Test tag
+    runs-on: ubuntu-20.04
+    needs: generate_tag
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Echo tag
+        run: |
+          docker build --build-arg TAG="${{ needs.generate_tag.outputs.image-tag }} ${GITHUB_SHA::6}" --build-arg BUILD_TIME="$BUILD_TIME" .
