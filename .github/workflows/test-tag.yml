@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Echo tag
         run: |
-          echo "${GITHUB_REF#refs/heads/} ${GITHUB_SHA::6}"
+          docker build --build-arg TAG="${GITHUB_REF#refs/heads/} ${GITHUB_SHA::6}" .
