@@ -9,6 +9,8 @@ jobs:
     name: Test tag
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Echo tag
         run: |
           docker build --build-arg TAG="${GITHUB_REF#refs/heads/} ${GITHUB_SHA::6}" .
