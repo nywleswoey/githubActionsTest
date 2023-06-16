@@ -5,4 +5,7 @@ FROM cypress/base:16.13.0
 ARG TAG
 ENV TAG ${TAG:-0000}
 
-RUN echo ${TAG:-0000}
+ARG BUILD_TIME
+
+RUN echo ${TAG}
+RUN echo ${BUILD_TIME}
