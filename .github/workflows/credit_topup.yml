@@ -1,0 +1,11 @@
+name: Credit Top-up Pipeline
+
+on:
+  workflow_dispatch:
+
+env:
+  DOCKERFILE: "${{ GITHUB_WORKSPACE }}/cmd/credit-topup/Dockerfile"
+
+jobs:
+  name: Show values
+  run: echo "$DOCKERFILE"
