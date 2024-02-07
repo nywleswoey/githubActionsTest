@@ -7,5 +7,5 @@ env:
   DOCKERFILE: "${{ GITHUB_WORKSPACE }}/cmd/credit-topup/Dockerfile"
 
 jobs:
-  name: Show values
-  run: echo "$DOCKERFILE"
+  - name: Show values
+    run: echo "$DOCKERFILE"
